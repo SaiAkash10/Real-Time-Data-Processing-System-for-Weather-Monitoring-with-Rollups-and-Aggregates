@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <h1>Weather Monitoring Dashboard</h1>
+    </header>
+    <nav>
+      <a href="/">Home</a>
+      
+      <!-- Dropdown for Visualization -->
+      <a>
+        <div class="dropdown">
+          <button class="dropbtn">Visualization</button>
+          <div class="dropdown-content">
+              <form id="visualization-form" action="/visualization" method="POST">
+                  <select name="city" id="city-dropdown" onchange="submitForm()">
+                      <option value="">Select a city</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Bangalore">Bangalore</option>
+                      <option value="Kolkata">Kolkata</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                  </select>
+              </form>
+          </div>
+      </div>
+      </a>
+      <a href="/alerts">Alerts</a>
+    </nav>
+    <div class="content">{% block content %}{% endblock %}</div>
+    <script>
+      function submitForm() {
+          const form = document.getElementById('visualization-form');
+          const cityDropdown = document.getElementById('city-dropdown');
+          const selectedCity = cityDropdown.value;
+  
+          if (selectedCity) {
+              // Set the action dynamically to call the route with the selected city
+              form.action = `/visualization`;
+              // Create a hidden input to store the selected city
+              const hiddenInput = document.createElement('input');
+              hiddenInput.type = 'hidden';
+              hiddenInput.name = 'city';
+              hiddenInput.value = selectedCity;
+              form.appendChild(hiddenInput);
+              form.submit();
+          }
+      }
+  </script>  
+  </body>
+</html>

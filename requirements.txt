@@ -1,0 +1,8 @@
+Flask==2.2.5
+requests==2.26.0
+db-sqlite3
+matplotlib
+python-dotenv==1.0.1
+Werkzeug==2.0.3
+
+

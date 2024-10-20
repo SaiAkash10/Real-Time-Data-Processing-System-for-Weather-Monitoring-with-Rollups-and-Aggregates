@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px;">
+    <h2 style="flex-grow: 1; text-align: center; margin: 0;">Daily Weather Summary</h2>
+</div>
+<table>
+    <tr>
+        <th>City</th>
+        <th>Average Temp (°C)</th>
+        <th>Max Temp (°C)</th>
+        <th>Min Temp (°C)</th>
+        <th>Dominant Condition</th>
+    </tr>
+    {% for city, avg_temp, max_temp, min_temp, condition in summary %}
+    <tr>
+        <td>{{ city }}</td>
+        <td>{{ avg_temp }}</td>
+        <td>{{ max_temp }}</td>
+        <td>{{ min_temp }}</td>
+        <td>{{ condition }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+    function submitTempFormat() {
+        const form = document.getElementById('temp-format-form');
+        const tempDropdown = document.getElementById('temp');
+        const selectedTemp = tempDropdown.value;
+
+        if (selectedTemp) {
+            // Simply submit the form, no need for hidden input in this case
+            form.submit();
+        }
+    }
+</script>
+{% endblock %}
