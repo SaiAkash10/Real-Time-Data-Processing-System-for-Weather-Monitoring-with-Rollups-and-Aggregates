@@ -1,7 +1,5 @@
 # Real-Time Weather Monitoring System
 
-## Assignment 2 for Zeotap Internship
-
 ### Overview
 
 This application is a **Real-Time Data Processing System for Weather Monitoring**, designed to continuously retrieve weather data from the OpenWeatherMap API and provide summarized insights using rollups and aggregates. The system focuses on delivering essential weather parameters, visualizations, and alerting functionalities.
@@ -88,4 +86,3 @@ The system retrieves data from the [OpenWeatherMap API](https://openweathermap.o
 - **Codebase**: Hosted on GitHub.
 - **Comprehensive README**: Including build instructions, design choices, and any additional features.
 - **Dependencies**: List of dependencies required for setting up and running the application (Docker or Podman containers can also be included).
-
